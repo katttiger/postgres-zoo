@@ -31,9 +31,14 @@ public class MonkeyService {
         return monkeyRepository.save(monkey);
     }
 
-    public Monkey updateMovie(long id, Monkey monkey) {
+    public Monkey updateMonkey(long id, Monkey monkey) {
+        Monkey currentMonkey = monkeyRepository.findById(id).orElseThrow(()-> new MonkeyNotFoundException("Monkey with id " + id + " not found"));
         monkey.setId(id);
-        return monkeyRepository.save(monkey);
+        currentMonkey.setName(monkey.getName());
+        currentMonkey.setCurrentHabitat(monkey.getCurrentHabitat());
+        currentMonkey.setType(monkey.getType());
+        currentMonkey.setOriginCountry(monkey.getOriginCountry());
+        return monkeyRepository.save(currentMonkey);
     }
 
     public void deleteMonkey(long id) {
