@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import se.iths.cecilia.postrgreszoo.model.Lion;
 
 @Repository
-public interface LionRepository extends JpaRepository<Long, Lion> {
+public interface LionRepository extends JpaRepository<Lion, Long> {
 }
