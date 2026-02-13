@@ -114,13 +114,13 @@ public class WolfServiceTest {
         assertThrows(WolfNotFoundException.class,
                 () -> wolfService.updateWolf(1L, wolf));
 
-        verify(wolfRepository.findById(1L));
+        verify(wolfRepository).findById(1L);
         verify(wolfRepository, never()).save(any());
     }
 
     @Test
     void invalidWolfNameShouldThrowException() {
-        
+
     }
 
 }
